@@ -173,7 +173,7 @@ def menu():
     	atursandi()
     elif asw == "2":
     	massal()
-    	atursandi()
+        atursandi()
     elif asw == "3":
     	postingan()
     	atursandi()
