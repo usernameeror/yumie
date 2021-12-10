@@ -146,4 +146,46 @@ def menu():
     except requests.exceptions.ConnectionError:
         exit(" %s[!] anda tidak terhubung ke internet!"%(M))
 
-  logo()
+    logo()
+    print(" %s\x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mAuthor    \x1b[1;93m: \x1b[1;93mNdriiTzy X EzaaTzy"%(N))
+    print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mGithub    : https://github.com/YumasaaTzy")
+    print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93m--------------------------------------------")
+    print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mBergabung \x1b[1;93m: %s"%(tgl))
+    print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mStatus    \x1b[1;93m: %s\x1b[1;92mPremium Sampai Kiamat%s"%(H,N))
+    print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93m--------------------------------------------")
+    print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mIP        \x1b[1;93m: %s"%(IP))
+    print("\n \x1b[1;92m[ \x1b[1;97mselamat datang %s%s%s \x1b[1;92m]\n"%(K,nama,N))
+    print(" \x1b[1;92m[\x1b[1;93m01\x1b[1;92m]. \x1b[1;93mcrack dari id publik")
+    asw = raw_input("\n \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mpilih menu : \x1b[1;92m")
+    if asw == "":
+    	menu()
+    elif asw == "1":
+    	publik()
+    	atursandi()
+    elif asw == "2":
+    	massal()
+    	atursandi()
+    elif asw == "3":
+    	followers()
+    	atursandi()
+    elif asw == "4":
+    	postingan()
+    	atursandi()
+    elif asw == "5":
+    	fbbaru()
+        sandimanual()
+    elif asw == "6":
+    	fbtua()
+        sandimanual()
+    elif asw == "7":
+    	emailfb()
+        sandimanual()
+    elif asw == "8":
+    	infotambahan()
+    elif asw == "0":
+    	os.system('rm -f token.txt')
+    	jalan(" \x1b[1;92m[\x1b[1;93m✓\x1b[1;92m] \x1b[1;93mberhasil menghapus token ")
+    	exit()
+    else:
+    	jalan(" [!] pilih jawaban dengan bener ! ")
+    	menu() 
