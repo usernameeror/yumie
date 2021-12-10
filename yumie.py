@@ -169,16 +169,16 @@ def menu():
     if asw == "":
     	menu()
     elif asw == "1":
-    	publik()
+    	teman(kontol)
     	atur_sandi()
     elif asw == "2":
-    	massal()
+    	publik(kontol)
     	atursandi()
     elif asw == "3":
-    	postingan()
+    	followers(kontol)
     	atursandi()
     elif asw == "4":
-    	followers()
+        postingan(kontol)
     	atursandi()
     elif asw == "5":
     	cekhasil()
