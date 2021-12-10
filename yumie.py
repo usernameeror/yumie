@@ -525,3 +525,13 @@ def info_tools():
     print '\n %s\x1b[1;92m[%s>%s\x1b[1;92m] Catatan  \x1b[1;93m: Please support my github, brothers and sisters'%(N,H,N);time.sleep(0.07)
     print '\n %s[%s#%s]'%(N,O,N), 52 * '\x1b[1;92m-\x1b[0m';time.sleep(0.07)
     raw_input('\n  [ %sKEMBALI%s ] '%(O,N));menu()
+
+####LAPORAN BUG####
+def laporbug():
+    asulo = raw_input('\n \x1b[1;92m[?] masukan laporan bug script : \x1b[1;92m').replace(' ', '%100')
+    if asulo == '':
+        menu()
+    os.system('xdg-open https://wa.me/6281272106675?text=' + asulo)
+    raw_input('\n \x1b[1;92m[*] \x1b[1;93mkembali ')
+    menu()
+
