@@ -156,7 +156,15 @@ def menu():
     print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mIP        \x1b[1;93m: %s"%(IP))
     print("\n \x1b[1;92m[ \x1b[1;97mselamat datang %s%s%s \x1b[1;92m]\n"%(K,nama,N))
     print(" \x1b[1;92m[\x1b[1;93m01\x1b[1;92m]. \x1b[1;93mcrack dari id publik")
-    print(" \x1b[1;92m[\x1b[1;93m01\x1b[1;92m]. \x1b[1;93mcrack dari id massal")
+    print(" \x1b[1;92m[\x1b[1;93m02\x1b[1;92m]. \x1b[1;93mcrack dari id massal")
+    print(" \x1b[1;92m[\x1b[1;93m03\x1b[1;92m]. \x1b[1;93mcrack dari id postingan")
+    print(" \x1b[1;92m[\x1b[1;93m04\x1b[1;92m]. \x1b[1;93mcrack dari id Followers")
+    print(" \x1b[1;92m[\x1b[1;93m05\x1b[1;92m]. \x1b[1;93mCheck hasil crack")
+    print(" \x1b[1;92m[\x1b[1;93m06\x1b[1;92m]. \x1b[1;93mCheck opsi CheckPoint")
+    print(" \x1b[1;92m[\x1b[1;93m07\x1b[1;92m]. \x1b[1;93mSettings User agent")
+    print(" \x1b[1;92m[\x1b[1;93m08\x1b[1;92m]. \x1b[1;93mIngfo Script")
+    print(" \x1b[1;92m[\x1b[1;93m09\x1b[1;92m]. \x1b[1;93mLapor bug")
+    print(" \x1b[1;92m[\x1b[1;93m00\x1b[1;92m]. \x1b[1;91mHapus token")
     asw = raw_input("\n \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mpilih menu : \x1b[1;92m")
     if asw == "":
     	menu()
@@ -167,22 +175,21 @@ def menu():
     	massal()
     	atursandi()
     elif asw == "3":
-    	followers()
-    	atursandi()
-    elif asw == "4":
     	postingan()
     	atursandi()
+    elif asw == "4":
+    	followers()
+    	atursandi()
     elif asw == "5":
-    	fbbaru()
-        sandimanual()
+    	cekhasil()
     elif asw == "6":
-    	fbtua()
-        sandimanual()
+    	cekopsi()
     elif asw == "7":
-    	emailfb()
-        sandimanual()
+    	seting_yntkts()
     elif asw == "8":
-    	infotambahan()
+    	info_tools()
+    elif asw == "9":
+        laporbug
     elif asw == "0":
     	os.system('rm -f token.txt')
     	jalan(" \x1b[1;92m[\x1b[1;93m✓\x1b[1;92m] \x1b[1;93mberhasil menghapus token ")
@@ -230,22 +237,6 @@ def massal():
 			print(" [!] akun tidak tersedia atau list teman private")
 	print("\n [+] total id  : %s%s%s"%(M,len(id),N))
 	
-### DUMP POSTINGAN ###
-def postingan():
-	global token
-	try:
-		token = open("token.txt", "r").read()
-	except IOError:
-		exit(" [!] token kadaluwarsa")
-	idt = raw_input(" [?] masukan url atau id postingan : ")
-	try:
-		for i in requests.get("https://graph.facebook.com/%s/likes?limit=5000&access_token=%s"%(idt, token)).json()["data"]:
-			uid = i["id"]
-			nama = i["name"]
-			id.append(uid+"<=>"+nama)
-	except KeyError:
-		exit(" [!] postingan tidak tersedia atau post private")
-	print("\n [+] total id  : %s%s%s"%(M,len(id),N))
 
 ### DUMP FOLLOWERS ###
 def followers():
