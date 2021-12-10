@@ -198,81 +198,125 @@ def menu():
     	jalan(" [!] pilih jawaban dengan bener ! ")
     	menu() 
 
-### DUMP PUBLIK ###
-def publik():
-	global token
-	try:
-		token = open("token.txt", "r").read()
-	except IOError:
-		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mtoken kadaluwarsa")
-	print(" \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93misi \x1b[1;97m'\x1b[1;92mme\x1b[1;97m' \x1b[1;93mjika ingin crack dari daftar teman")
-	idt = raw_input(" \x1b[1;92m[\x1b[1;93m*\x1b[1;92m] \x1b[1;93mmasukan id atau username \x1b[1;93m: \x1b[1;92m")
-	try:
-		for i in requests.get("https://graph.facebook.com/%s/friends?access_token=%s"%(idt, token)).json()["data"]:
-			id.append(i["id"]+"<=>"+i["name"])
-	except KeyError:
-		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93makun tidak tersedia atau list teman private")
-	print("\n \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mtotal id  \x1b[1;93m: %s%s%s\x1b[1;92m"%(M,len(id),N)) 
-  
-### DUMP MASSAL ###
-def massal():
-	global token
-	try:
-		token = open("token.txt", "r").read()
-	except IOError:
-		exit(" [!] token kadaluwarsa")
-	try:
-		tanya_total = int(raw_input(" [?] masukan jumlah target : "))
-	except:tanya_total=1
-	print(" [*] isi 'me' jika ingin crack dari daftar teman")
-	for t in range(tanya_total):
-		t +=1
-		idt = raw_input(" [?] id target %s : "%(t))
-		try:
-			for i in requests.get("https://graph.facebook.com/%s/friends?access_token=%s"%(idt, token)).json()["data"]:
-				uid = i["id"]
-				nama = i["name"]
-				id.append(uid+"<=>"+nama)
-		except KeyError:
-			print(" [!] akun tidak tersedia atau list teman private")
-	print("\n [+] total id  : %s%s%s"%(M,len(id),N))
-	
 
-### DUMP FOLLOWERS ###
-def followers():
-	global token
-	try:
-		token = open("token.txt", "r").read()
-	except IOError:
-		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mtoken kadaluwarsa")
-	print(" \x1b[1;92m[\x1b[1;93m*\x1b[1;92m] \x1b[1;93misi \x1b[1;92m'\x1b[1;97mme\x1b[1;92m' \x1b[1;97mjika ingin crack dari pengikut sendiri")
-	idt = raw_input(" \x1b[1;92m[\x1b[1;93m*\x1b[1;92m] \x1b[1;93mmasukan id atau username \x1b[1;97m: \x1b[1;92m")
-	try:
-		for i in requests.get("https://graph.facebook.com/%s/subscribers?limit=5000&access_token=%s"%(idt, token)).json()["data"]:
-			uid = i["id"]
-			nama = i["name"]
-			id.append(uid+"<=>"+nama)
-	except KeyError:
-		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93makun tidak tersedia atau list teman private")
-	print("\n \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mtotal id \x1b[1;97m-> %s%s%s\x1b[1;92m"%(M,len(id),N)) 
+# dump id dari teman hehe
+def teman(kontol):
+    try:
+        os.mkdir('dump')
+    except:pass
+    try:
+        mmk = raw_input('\n %s[%s?%s] nama file  : '%(N,O,N))
+        asw = raw_input(' %s[%s?%s] limit id   : '%(N,O,N))
+        cin = ('dump/' + mmk + '.json').replace(' ', '_')
+        xxx = open(cin, 'w')
+        for a in requests.get('https://graph.facebook.com/me/friends?limit=%s&access_token=%s'%(asw,kontol)).json()["data"]:
+            id.append(a['name'] + '<=>' + a['id'])
+            xxx.write(a['name'] + '<=>' + a['id'] + '\n')
+            w = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+            sys.stdout.write('\r\033[0m - ' + w + '%s%s                                        \r\n\n [\033[0;96m%s\033[0m] [\033[0;91m%s\033[0m] Proses Dump Id...'%(a['name'],N,datetime.now().strftime('%H:%M:%S'), len(id)
+            )); sys.stdout.flush()
+            time.sleep(0.0050)
 
-### DUMP POSTINGAN ###
-def postingan():
-	global token
-	try:
-		token = open("token.txt", "r").read()
-	except IOError:
-		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mtoken kadaluwarsa")
-	idt = raw_input(" \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mmasukan url atau id postingan \x1b[1;97m: \x1b[1;92m")
-	try:
-		for i in requests.get("https://graph.facebook.com/%s/likes?limit=5000&access_token=%s"%(idt, token)).json()["data"]:
-			uid = i["id"]
-			nama = i["name"]
-			id.append(uid+"<=>"+nama)
-	except KeyError:
-		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mpostingan tidak tersedia atau post private")
-	print("\n \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mtotal id \x1b[1;97m-> %s%s%s\x1b[1;92m"%(M,len(id),N)) 
-	
+        xxx.close()
+        jalan('\n\n %s[%s✓%s] berhasil dump id dari teman'%(N,H,N))
+        print ' [%s•%s] salin output file 👉 ( %s%s%s )'%(O,N,M,cin,N)
+        print 50 * '-'
+        raw_input(' [%s ENTER%s ] '%(O,N));moch_yayan()
+    except (KeyError,IOError):
+        os.remove(cin)
+        jalan('\n %s[%s!%s] Gagal dump id, kemungkinan id tidaklah publik.\n'%(N,M,N))
+        raw_input(' [ %sKEMBALI%s ] '%(O,N));moch_yayan()
+'''
+																																																				csy = 'Cindy sayang Yayan'
+																																																				ysc = 'Yayan sayang Cindy'
+																																																			'''
+# dump id dari teman publik hehe
+def publik(kontol):
+    try:
+        os.mkdir('dump')
+    except:pass
+    try:
+        csy = raw_input('\n %s[%s?%s] id publik  : '%(N,O,N))
+        ahh = raw_input(' %s[%s?%s] nama file  : '%(N,O,N))
+        ihh = raw_input(' %s[%s?%s] limit id   : '%(N,O,N))
+        knt = ('dump/' + ahh + '.json').replace(' ', '_')
+        xxx = open(knt, 'w')
+        for a in requests.get('https://graph.facebook.com/%s/friends?limit=%s&access_token=%s'%(csy,ihh,kontol)).json()["data"]:
+            id.append(a['name'] + '<=>' + a['id'])
+            xxx.write(a['name'] + '<=>' + a['id'] + '\n')
+            w = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+            sys.stdout.write('\r\033[0m - ' + w + '%s%s                                        \r\n\n [\033[0;96m%s\033[0m] [\033[0;91m%s\033[0m] Proses Dump Id...'%(a['name'],N,datetime.now().strftime('%H:%M:%S'), len(id)
+            )); sys.stdout.flush()
+            time.sleep(0.0050)
+
+        xxx.close()
+        jalan('\n\n %s[%s✓%s] berhasil dump id dari teman publik'%(N,H,N))
+        print ' [%s•%s] salin output file 👉 ( %s%s%s )'%(O,N,M,knt,N)
+        print 50 * '-'
+        raw_input(' [%s ENTER%s ] '%(O,N));moch_yayan()
+    except (KeyError,IOError):
+        os.remove(knt)
+        jalan('\n %s[%s!%s] Gagal dump id, kemungkinan id tidaklah publik.\n'%(N,M,N))
+        raw_input(' [ %sKEMBALI%s ] '%(O,N));moch_yayan()
+
+# dump id dari followers hehe
+def followers(kontol):
+    try:
+        os.mkdir('dump')
+    except:pass
+    try:
+        csy = raw_input('\n %s[%s?%s] id follow  : '%(N,O,N))
+        mmk = raw_input(' %s[%s?%s] nama file  : '%(N,O,N))
+        asw = raw_input(' %s[%s?%s] limit id   : '%(N,O,N))
+        ah  = ('dump/' + mmk + '.json').replace(' ', '_')
+        xxx = open(ah, 'w')
+        for a in requests.get('https://graph.facebook.com/%s/subscribers?limit=%s&access_token=%s'%(csy,asw,kontol)).json()["data"]:
+            id.append(a['id'] + '<=>' + a['name'])
+            xxx.write(a['id'] + '<=>' + a['name'] + '\n')
+            w = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+            sys.stdout.write('\r\033[0m - ' + w + '%s%s                                        \r\n\n [\033[0;96m%s\033[0m] [\033[0;91m%s\033[0m] Proses Dump Id...'%(a['name'],N,datetime.now().strftime('%H:%M:%S'), len(id)
+            )); sys.stdout.flush()
+            time.sleep(0.0050)
+
+        xxx.close()
+        jalan('\n\n %s[%s✓%s] berhasil dump id dari total followers'%(N,H,N))
+        print ' [%s•%s] salin output file 👉 ( %s%s%s )'%(O,N,M,ah,N)
+        print 50 * '-'
+        raw_input(' [%s ENTER%s ] '%(O,N));moch_yayan()
+    except (KeyError,IOError):
+        os.remove(ah)
+        jalan('\n %s[%s!%s] Gagal dump id, kemungkinan id tidaklah publik.\n'%(N,M,N))
+        raw_input(' [ %sKEMBALI%s ] '%(O,N));moch_yayan()
+
+# dump id dari postingan hehe
+def postingan(kontol):
+    try:
+        os.mkdir('dump')
+    except:pass
+    try:
+        csy = raw_input('\n %s[%s?%s] id posting : '%(N,O,N))
+        ppk = raw_input(' %s[%s?%s] nama file  : '%(N,O,N))
+        asw = raw_input(' %s[%s?%s] limit id   : '%(N,O,N))
+        ahh = ('dump/' + ppk + '.json').replace(' ', '_')
+        xxx = open(ahh, 'w')
+        for a in requests.get('https://graph.facebook.com/%s/likes?limit=%s&access_token=%s'%(csy,asw,kontol)).json()["data"]:
+            id.append(a['id'] + '<=>' + a['name'])
+            xxx.write(a['id'] + '<=>' + a['name'] + '\n')
+            w = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+            sys.stdout.write('\r\033[0m - ' + w + '%s%s                                        \r\n\n [\033[0;96m%s\033[0m] [\033[0;91m%s\033[0m] Proses Dump Id...'%(a['name'],N,datetime.now().strftime('%H:%M:%S'), len(id)
+            )); sys.stdout.flush()
+            time.sleep(0.0050)
+
+        xxx.close()
+        jalan('\n\n %s[%s✓%s] berhasil dump id dari like postingan'%(N,H,N))
+        print ' [%s•%s] salin output file 👉 ( %s%s%s )'%(O,N,M,ahh,N)
+        print 50 * '-'
+        raw_input(' [%s ENTER%s ] '%(O,N));moch_yayan()
+    except (KeyError,IOError):
+        os.remove(ahh)
+        jalan('\n %s[%s!%s] Gagal dump id, kemungkinan id tidaklah publik.\n'%(N,M,N))
+        raw_input(' [ %sKEMBALI%s ] '%(O,N));moch_yayan()
+
 ### CEK HASIL CRACK ###
 def cekhasil():
 	print('\n \x1b[1;92m[\x1b[1;93m1\x1b[1;92m]\x1b[1;97m. \x1b[1;92mlihat hasil crack OK ')
