@@ -230,3 +230,19 @@ def massal():
 			print(" [!] akun tidak tersedia atau list teman private")
 	print("\n [+] total id  : %s%s%s"%(M,len(id),N))
 	
+### DUMP POSTINGAN ###
+def postingan():
+	global token
+	try:
+		token = open("token.txt", "r").read()
+	except IOError:
+		exit(" [!] token kadaluwarsa")
+	idt = raw_input(" [?] masukan url atau id postingan : ")
+	try:
+		for i in requests.get("https://graph.facebook.com/%s/likes?limit=5000&access_token=%s"%(idt, token)).json()["data"]:
+			uid = i["id"]
+			nama = i["name"]
+			id.append(uid+"<=>"+nama)
+	except KeyError:
+		exit(" [!] postingan tidak tersedia atau post private")
+	print("\n [+] total id  : %s%s%s"%(M,len(id),N))
