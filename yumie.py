@@ -265,3 +265,20 @@ def followers():
 		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93makun tidak tersedia atau list teman private")
 	print("\n \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mtotal id \x1b[1;97m-> %s%s%s\x1b[1;92m"%(M,len(id),N)) 
 
+### DUMP POSTINGAN ###
+def postingan():
+	global token
+	try:
+		token = open("token.txt", "r").read()
+	except IOError:
+		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mtoken kadaluwarsa")
+	idt = raw_input(" \x1b[1;92m[\x1b[1;93m?\x1b[1;92m] \x1b[1;93mmasukan url atau id postingan \x1b[1;97m: \x1b[1;92m")
+	try:
+		for i in requests.get("https://graph.facebook.com/%s/likes?limit=5000&access_token=%s"%(idt, token)).json()["data"]:
+			uid = i["id"]
+			nama = i["name"]
+			id.append(uid+"<=>"+nama)
+	except KeyError:
+		exit(" \x1b[1;92m[\x1b[1;93m!\x1b[1;92m] \x1b[1;93mpostingan tidak tersedia atau post private")
+	print("\n \x1b[1;92m[\x1b[1;93m+\x1b[1;92m] \x1b[1;93mtotal id \x1b[1;97m-> %s%s%s\x1b[1;92m"%(M,len(id),N)) 
+	
