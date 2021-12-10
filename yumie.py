@@ -169,7 +169,7 @@ def menu():
     if asw == "":
     	menu()
     elif asw == "1":
-    	teman(kontol)
+    	teman()
     	atur_sandi()
     elif asw == "2":
     	publik(kontol)
