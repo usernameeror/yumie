@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 # coding=utf-8
-# author : Fall Xavier
+# author : BINTANG-XD
 
 ### IMPORT MODULE ###
 import os, sys, re, time, requests, calendar, random,json
