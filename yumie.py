@@ -172,7 +172,7 @@ def menu():
     	teman()
     	atur_sandi()
     elif asw == "2":
-    	publik(kontol)
+    	publik()
     	atursandi()
     elif asw == "3":
     	followers(kontol)
@@ -200,7 +200,7 @@ def menu():
 
 
 # dump id dari teman hehe
-def teman(kontol):
+def teman():
     try:
         os.mkdir('dump')
     except:pass
@@ -231,7 +231,7 @@ def teman(kontol):
 																																																				ysc = 'Yayan sayang Cindy'
 																																																			'''
 # dump id dari teman publik hehe
-def publik(kontol):
+def publik():
     try:
         os.mkdir('dump')
     except:pass
