@@ -170,7 +170,7 @@ def menu():
     	menu()
     elif asw == "1":
     	publik()
-    	atursandi()
+    	atur_sandi()
     elif asw == "2":
     	massal()
     	atursandi()
